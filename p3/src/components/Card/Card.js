@@ -4,14 +4,26 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      descripcion: "",
+      show: "hidden",
+      textShow: "Ver Más",
+      isShowing: false,
     };
   }
 
-  mostrar() {
-    this.setState({
-      descripcion: "",
-    });
+  renderDescription() {
+    if (this.state.isShowing) {
+      this.setState({
+        show: "hidden",
+        textShow: "Ver Más",
+        isShowing: false,
+      });
+    } else {
+      this.setState({
+        show: "show",
+        textShow: "Ver Menos",
+        isShowing: true,
+      });
+    }
   }
 
   render() {
@@ -20,11 +32,15 @@ class Card extends Component {
         <img src={this.props.cover} alt="" />
         <h3>{this.props.title}</h3>
         <p> {this.props.artist}</p>
-        <div>
+
+        <div className={this.state.show}>
           <p>Ranking: {this.props.ranking}</p>
-          <p>Duration: {this.props.duration} </p>
+          <p>Duración: {this.props.duration}seg </p>
+          <p>Álbum: {this.props.albumName} </p>
         </div>
-        <button> Ver más </button>
+        <button onClick={() => this.renderDescription()}>
+          {this.state.textShow}
+        </button>
       </div>
     );
   }

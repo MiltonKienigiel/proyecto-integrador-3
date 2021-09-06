@@ -7,3 +7,10 @@
     margin: auto;
     width: 200px;
 }
+
+.hidden{
+    display: none;
+}
+.show{
+    display: block;
+}

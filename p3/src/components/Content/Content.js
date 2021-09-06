@@ -9,7 +9,6 @@ class Content extends Component {
       data: [],
     };
   }
-
   componentDidMount() {
     fetch(
       "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
@@ -30,18 +29,22 @@ class Content extends Component {
 
   render() {
     return (
-      <div className="cardContainer">
-        {this.state.data.map((cancion, idx) => {
-          return (
-            <Card
-              key={idx}
-              artist={cancion.artist.name}
-              title={cancion.title}
-              ranking={cancion.rank}
-              cover={cancion.album.cover}
-            />
-          );
-        })}
+      <div className="containerBig">
+        <div className="cardContainer">
+          {this.state.data.map((cancion, idx) => {
+            return (
+              <Card
+                key={idx}
+                artist={cancion.artist.name}
+                title={cancion.title}
+                ranking={cancion.rank}
+                duration={cancion.duration}
+                cover={cancion.album.cover}
+                albumName={cancion.album.title}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   } // Render
