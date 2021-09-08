@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./Card.css";
+
 class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
       show: "hidden",
-      textShow: "Ver Más",
+      textShow: "Ver más",
       isShowing: false,
     };
   }
@@ -14,13 +15,13 @@ class Card extends Component {
     if (this.state.isShowing) {
       this.setState({
         show: "hidden",
-        textShow: "Ver Más",
+        textShow: "Ver más",
         isShowing: false,
       });
     } else {
       this.setState({
         show: "show",
-        textShow: "Ver Menos",
+        textShow: "Ver menos",
         isShowing: true,
       });
     }
@@ -37,8 +38,9 @@ class Card extends Component {
           <p>Ranking: {this.props.ranking}</p>
           <p>Duración: {this.props.duration}seg </p>
           <p>Álbum: {this.props.albumName} </p>
+          <button onClick={()=>this.props.delete(this.props.id)}>Eliminar canción</button>
         </div>
-        <button onClick={() => this.renderDescription()}>
+        <button onClick={()=> this.renderDescription()}>
           {this.state.textShow}
         </button>
       </div>
