@@ -29,7 +29,15 @@ class Card extends Component {
 
   render() {
     return (
+
+      
+
+
+
+
+
       <div className="card">
+        <div><i  onClick={()=>this.props.delete(this.props.id)} className="far fa-window-close"></i></div>
         <img src={this.props.cover} alt="" />
         <h3>{this.props.title}</h3>
         <p> {this.props.artist}</p>
@@ -38,7 +46,7 @@ class Card extends Component {
           <p>Ranking: {this.props.ranking}</p>
           <p>Duración: {this.props.duration}seg </p>
           <p>Álbum: {this.props.albumName} </p>
-          <button onClick={()=>this.props.delete(this.props.id)}>Eliminar canción</button>
+         
         </div>
         <button onClick={()=> this.renderDescription()}>
           {this.state.textShow}

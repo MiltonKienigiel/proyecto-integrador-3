@@ -10,15 +10,15 @@ class Header extends Component {
     render(){
         return(
 
-            <div>
-                <img src="../images/logo-spotify.png" alt="logo"></img>
-                <ul>
-                    <li>Home</li>
-                    <li>Álbumes</li>
-                    <li>Artistas</li>
-                    <li>Más populares</li>
-                </ul>
-            </div>
+            <header>
+            <h1>Título/ Nombre de la app</h1>
+            <section>
+                <p>Ordenar ASC/ DESC</p>
+                <i className="fas fa-th"></i>
+                <i className="fas fa-align-justify"></i>
+                
+            </section>
+        </header>
 
         )
     }
