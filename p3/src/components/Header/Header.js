@@ -11,13 +11,8 @@ class Header extends Component {
         return(
 
             <header>
-            <h1>Título/ Nombre de la app</h1>
-            <section>
-                <p>Ordenar ASC/ DESC</p>
-                <i className="fas fa-th"></i>
-                <i className="fas fa-align-justify"></i>
-                
-            </section>
+            <h1>La Rocola Espacial</h1>
+            
         </header>
 
         )

@@ -12,7 +12,8 @@ class Content extends Component {
       filteredCards: [],
       loaded:false,
       contador: 0,
-      textoCargando: ""
+      loadingText: "",
+
     };
   }
   
@@ -28,7 +29,8 @@ class Content extends Component {
           
           cards: info.data,
           filteredCards: info.data,
-          loaded:true
+          loaded:true,
+          cardClassName: "vertical"
         });
       })
       .catch((error) => {
@@ -51,8 +53,9 @@ class Content extends Component {
     
     if (!this.state.loaded) {
    
-    return  <p> Cargando....  </p> 
-    }else{
+      return  <p> Cargando...  </p>
+
+    } else{
      return this.state.filteredCards.map((cancion, idx) => {
         return (
           <Card
@@ -65,34 +68,41 @@ class Content extends Component {
             albumName={cancion.album.title}
             id={cancion.id}
             delete={(id)=>this.deleteCard(id)}
+            cardClassName={this.state.cardClassName}
           />
         );
       })
     }
   }
 
+  verticalOrder(){
+    this.setState({
+      cardClassName: "vertical"
+    })
+  }
+
+  horizontalOrder(){
+    this.setState({
+      cardClassName: "horizontal",
+    })
+  }
 
   filterByTitle(filterTitle){
     const filteredArray = this.state.cards.filter(card => card.title.toLowerCase().includes(filterTitle.toLowerCase()))
     if (filteredArray.length <= 0) {
       this.setState({
         filteredCards:[],
-        textoCargando: "Lo siento, prueba con otra busqueda"
+        loadingText: "Lo siento, prueba con otra búsqueda."
       })
-      
-    }else{
+    } else{
         this.setState({
           filteredCards:filteredArray,
-          textoCargando: null
-          
+          loadingText: null
         })
     }
   }
 
-  // sumarContador(){
-    
-  // }
-  cargarMas(){
+  loadMore(){
     this.setState ({
       contador: this.state.contador + 10,
       loaded: false
@@ -118,18 +128,23 @@ class Content extends Component {
     console.log(this.state.contador)
   
     
-  } // cargasMas
+  } // loadMore
 
   render() {
     return (
       
       <div className="containerBig">
+        <section>
+          <p>Ordenar ASC/ DESC</p>
+          <i className="fas fa-th" onClick={()=> this.verticalOrder()}></i>
+          <i className="fas fa-align-justify" onClick={()=> this.horizontalOrder()}></i>  
+        </section>
         <SearchInput filterByTitle={(filterTitle)=> {this.filterByTitle(filterTitle)}} />
-        <h3>{this.state.textoCargando} </h3>
+        <h3>{this.state.loadingText} </h3>
         <div className="cardContainer">
          {this.contentShow()}
         </div>
-        <button onClick={() => this.cargarMas()} type="button">Cargar más tarjetas</button>
+        <button onClick={() => this.loadMore()} type="button">Cargar más tarjetas</button>
       </div>
     );
   } // Render
