@@ -10,17 +10,15 @@ class Content extends Component {
      
       cards: [],
       filteredCards: [],
-      loaded:false
+      loaded:false,
+      contador: 0,
+      textoCargando: ""
     };
   }
   
   componentDidMount() {
-    /* FETCH ANTERIOR */
-    /* fetch(
-      "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
-    ) */
 
-    fetch("https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks")
+    fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&index=${this.state.contador}&limit=10`)
       .then((response) => {
         return response.json();
       })
@@ -50,8 +48,10 @@ class Content extends Component {
   }
 
   contentShow(){
+    
     if (!this.state.loaded) {
-    return  <p> Cargando...</p> 
+   
+    return  <p> Cargando....  </p> 
     }else{
      return this.state.filteredCards.map((cancion, idx) => {
         return (
@@ -74,27 +74,62 @@ class Content extends Component {
 
   filterByTitle(filterTitle){
     const filteredArray = this.state.cards.filter(card => card.title.toLowerCase().includes(filterTitle.toLowerCase()))
-    if (filterTitle === "") {
+    if (filteredArray.length <= 0) {
       this.setState({
-        filteredCards:this.state.cards
+        filteredCards:[],
+        textoCargando: "Lo siento, prueba con otra busqueda"
       })
+      
     }else{
         this.setState({
-          filteredCards:filteredArray
+          filteredCards:filteredArray,
+          textoCargando: null
+          
         })
     }
   }
+
+  // sumarContador(){
+    
+  // }
+  cargarMas(){
+    this.setState ({
+      contador: this.state.contador + 10,
+      loaded: false
+    },
+    ()=>{
+      fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&index=${this.state.contador}&limit=10`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((info) => {
+        console.log(info.data);
+        this.setState({
+          
+          cards: info.data,
+          filteredCards: this.state.filteredCards.concat(info.data),
+          loaded:true
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }) // Set state
+    console.log(this.state.contador)
+  
+    
+  } // cargasMas
 
   render() {
     return (
       
       <div className="containerBig">
         <SearchInput filterByTitle={(filterTitle)=> {this.filterByTitle(filterTitle)}} />
-        <button type="button">Cargar más tarjetas</button>
-
+        <h3>{this.state.textoCargando} </h3>
         <div className="cardContainer">
          {this.contentShow()}
         </div>
+        <button onClick={() => this.cargarMas()} type="button">Cargar más tarjetas</button>
       </div>
     );
   } // Render
