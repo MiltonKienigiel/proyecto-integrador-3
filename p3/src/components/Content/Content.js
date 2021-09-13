@@ -143,6 +143,10 @@ sortArray(array, type){
    })
    
  })
+} //sortArray
+
+moveLeft(){
+  
 }
 
 shuffle(array){

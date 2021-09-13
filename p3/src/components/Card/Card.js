@@ -46,6 +46,10 @@ class Card extends Component {
             <p>Álbum: {this.props.albumName} </p>
           </div>
 
+          <button onClick={()=> this.props.moveLeft}>
+            izquierda 
+          </button>
+
           <button onClick={()=> this.renderDescription()}>
             {this.state.textShow}
           </button>
