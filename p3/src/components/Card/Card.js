@@ -25,7 +25,7 @@ class Card extends Component {
         isShowing: true,
       });
     }
-  }
+  } // Render description 
 
   render() {
     if (this.props.cardClassName === "vertical"){
@@ -46,7 +46,7 @@ class Card extends Component {
             <p>Álbum: {this.props.albumName} </p>
           </div>
 
-          <button onClick={()=> this.props.moveLeft}>
+          <button onClick={(card)=> this.props.moveLeft(card)}>
             izquierda 
           </button>
 

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Content.css";
 import Card from "../Card/Card";
 import SearchInput from "../SearchInput/SearchInput";
+import {arrayMoveImmutable} from 'array-move';
+
 
 class Content extends Component {
   constructor(props) {
@@ -69,6 +71,7 @@ class Content extends Component {
             id={cancion.id}
             delete={(id)=>this.deleteCard(id)}
             cardClassName={this.state.cardClassName}
+            moveLeft = {(card)=> this.moveLeft(card)}
           />
         );
       })
@@ -100,6 +103,14 @@ class Content extends Component {
           loadingText: null
         })
     }
+  } // Filter by title
+
+  moveLeft(card){
+    const arrayNuevo = arrayMoveImmutable(this.state.filteredCards,0, 1)
+    console.log(card)
+    this.setState ({
+      filteredCards: arrayNuevo
+    }) //Solo anda con los primeros 2. Hay que ver como cambiar los numeros 0 y 1 a algo genérico. Para eso, averiguar como se referencia a un elemento padre
   }
 
   loadMore(){
@@ -145,10 +156,6 @@ sortArray(array, type){
  })
 } //sortArray
 
-moveLeft(){
-  
-}
-
 shuffle(array){
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -162,8 +169,7 @@ shuffle(array){
       filteredCards: array
     })
   
- 
-}
+} //Shuffle
 
   render() {
     return (
