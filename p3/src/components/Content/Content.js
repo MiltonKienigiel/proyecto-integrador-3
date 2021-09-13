@@ -130,14 +130,48 @@ class Content extends Component {
     
   } // loadMore
 
+sortArray(array, type){
+ this.setState({
+   filteredCards: array.sort(function (a, b) {
+     if (a.title> b.title) {
+       return type == "asc"? 1 : -1;
+     }else {
+       return type == "asc"? -1 : 1;
+     }
+     // a must be equal to b
+     return 0;
+   })
+   
+ })
+}
+
+shuffle(array){
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    this.setState({
+      filteredCards: array
+    })
+  
+ 
+}
+
   render() {
     return (
       
       <div className="containerBig">
         <section>
-          <p>Ordenar ASC/ DESC</p>
           <i className="fas fa-th" onClick={()=> this.verticalOrder()}></i>
           <i className="fas fa-align-justify" onClick={()=> this.horizontalOrder()}></i>  
+          <button onClick={()=>this.sortArray(this.state.filteredCards, "asc")}> A - Z </button>
+          <button onClick={()=>this.sortArray(this.state.filteredCards, "desc")}> Z - A </button>
+          <button onClick={()=>this.shuffle(this.state.filteredCards)}> La mixeta espacial </button>
+
         </section>
         <SearchInput filterByTitle={(filterTitle)=> {this.filterByTitle(filterTitle)}} />
         <h3>{this.state.loadingText} </h3>
