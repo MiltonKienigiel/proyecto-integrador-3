@@ -4,9 +4,11 @@
     text-align: center;
     padding: 20px;
     border-radius: 15px;
+    box-shadow: cornsilk 1px 1px;
     margin: auto;
     width: 200px;
 }
+
 
 .horizontal{
     background-color: black;
@@ -25,4 +27,37 @@
 }
 .show{
     display: block;
+}
+.fa-window-close:hover{
+    color: red;
+    cursor: pointer;
+}
+.imageSong{
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.btn_show{
+    background-color:cornflowerblue;
+    color: white;
+    width: fit-content;
+    margin:auto;
+    padding: 2px 5px;
+    font-size: 12px;
+    border-radius: 7px;
+}
+.btn_show:hover{
+    cursor: pointer;
+    background-color:rgb(57, 115, 221);
+
+}
+.containerBottom{
+    display: flex;
+}
+.fa-chevron-right:hover{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+.fa-chevron-left:hover{
+    cursor: pointer;
+    color: cornflowerblue;
 }

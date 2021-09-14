@@ -35,7 +35,7 @@ class Card extends Component {
           <div><i  onClick={()=>this.props.delete(this.props.id)} className="far fa-window-close"></i></div>
 
           <div>
-            <img src={this.props.cover} alt="" />
+            <img className="imageSong" src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
             <p> {this.props.artist}</p>
           </div>
@@ -45,14 +45,14 @@ class Card extends Component {
             <p>Duración: {this.props.duration} seg.</p>
             <p>Álbum: {this.props.albumName} </p>
           </div>
-
-          <button onClick={(card)=> this.props.moveLeft(card)}>
-            izquierda 
-          </button>
-
-          <button onClick={()=> this.renderDescription()}>
-            {this.state.textShow}
-          </button>
+         
+          <div className="containerBottom">
+            <i onClick={(card)=> this.props.moveLeft(card)} className="fas fa-chevron-left"></i>
+            <div className="btn_show" onClick={()=> this.renderDescription()}>
+              {this.state.textShow}
+            </div>
+            <i className="fas fa-chevron-right"></i>
+          </div>
 
         </div>
       );
