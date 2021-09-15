@@ -1,0 +1,10 @@
+header{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+header img{
+    max-height: 69px;
+}
+.text h1{    color: white !important
+}

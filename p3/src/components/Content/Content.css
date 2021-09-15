@@ -16,3 +16,12 @@
     margin: auto;
     align-items: flex-start;
 }
+.filtersContainer{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+.loadMore{
+    margin: auto;
+    text-align: center;
+}

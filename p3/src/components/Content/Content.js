@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Content.css";
 import Card from "../Card/Card";
 import SearchInput from "../SearchInput/SearchInput";
+import Slider from "../Slider/Slider";
 // import {arrayMoveImmutable} from 'array-move';
 
 class Content extends Component {
@@ -169,7 +170,8 @@ class Content extends Component {
   render() {
     return (
       <div className="containerBig">
-        <section>
+        <Slider />
+        <section className="filtersContainer">
           <i className="fas fa-th" onClick={() => this.verticalOrder()}></i>
           <i
             className="fas fa-align-justify"
@@ -178,28 +180,31 @@ class Content extends Component {
           <button
             onClick={() => this.sortArray(this.state.filteredCards, "asc")}
           >
-            {" "}
-            A - Z{" "}
+            A - Z
           </button>
           <button
             onClick={() => this.sortArray(this.state.filteredCards, "desc")}
           >
-            {" "}
-            Z - A{" "}
+            Z - A
           </button>
           <button onClick={() => this.shuffle(this.state.filteredCards)}>
-            {" "}
-            La mixeta espacial{" "}
+           
+            La mixeta espacial
           </button>
+
+          <SearchInput
+            filterByTitle={(filterTitle) => {
+              this.filterByTitle(filterTitle);
+            }}
+          />
         </section>
-        <SearchInput
-          filterByTitle={(filterTitle) => {
-            this.filterByTitle(filterTitle);
-          }}
-        />
         <h3>{this.state.loadingText} </h3>
         <div className="cardContainer">{this.contentShow()}</div>
-        <button onClick={() => this.loadMore()} type="button">
+        <button
+          className="loadMore"
+          onClick={() => this.loadMore()}
+          type="button"
+        >
           Cargar más tarjetas
         </button>
       </div>

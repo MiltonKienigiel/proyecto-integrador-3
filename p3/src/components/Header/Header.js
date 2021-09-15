@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-
+import "./Header.css"
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  render() {
+  render() { 
+
+
     return (
       <header>
-        <h1>La Rocola Espacial</h1>
+        <img src="./images/jukebox.svg" />
+        <div className="text">
+            <h1>La Rocola Espacial</h1>
+        </div>
       </header>
     );
   }
