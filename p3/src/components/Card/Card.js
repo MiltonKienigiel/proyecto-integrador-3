@@ -52,13 +52,17 @@ class Card extends Component {
 
           <div className="containerBottom">
             <i
-              onClick={(card) => this.props.moveLeft(card)}
+              onClick={() => this.props.moveLeft(this.props.id)}
               className="fas fa-chevron-left"
             ></i>
             <div className="btn_show" onClick={() => this.renderDescription()}>
               {this.state.textShow}
             </div>
-            <i className="fas fa-chevron-right"></i>
+            <i 
+              onClick={() => this.props.moveRight(this.props.id)}
+              className="fas fa-chevron-right">
+
+            </i>
           </div>
         </div>
       );

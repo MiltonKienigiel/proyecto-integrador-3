@@ -13,7 +13,7 @@ class Header extends Component {
       <header>
         <img src="./images/jukebox.svg" />
         <div className="text">
-            <h1>La Rocola Espacial</h1>
+            <h1>La Rockola Espacial</h1>
         </div>
       </header>
     );
