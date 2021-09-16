@@ -33,8 +33,8 @@ class Card extends Component {
         <div className={this.props.cardClassName}>
           <div className="closeSong">
             <i
+              class="fas fa-times"
               onClick={() => this.props.delete(this.props.id)}
-              className="far fa-window-close"
             ></i>
           </div>
 
@@ -58,11 +58,10 @@ class Card extends Component {
             <div className="btn_show" onClick={() => this.renderDescription()}>
               {this.state.textShow}
             </div>
-            <i 
+            <i
               onClick={() => this.props.moveRight(this.props.id)}
-              className="fas fa-chevron-right">
-
-            </i>
+              className="fas fa-chevron-right"
+            ></i>
           </div>
         </div>
       );
@@ -70,21 +69,21 @@ class Card extends Component {
       return (
         <div className={this.props.cardClassName}>
           <div className="containerSong">
-            <img src={this.props.cover} alt="" />
+            <img className="imageSong" src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
             <p> {this.props.artist}</p>
           </div>
 
           <div className="show">
-            <p>Ranking: {this.props.ranking}</p>
-            <p>Duración: {this.props.duration} seg. </p>
-            <p>Álbum: {this.props.albumName} </p>
+            <p className="pShow">Ranking: {this.props.ranking}</p>
+            <p className="pShow">Duración: {this.props.duration} seg. </p>
+            <p className="pShow">Álbum: {this.props.albumName} </p>
           </div>
 
           <div className="closeSong">
             <i
+              class="fas fa-times"
               onClick={() => this.props.delete(this.props.id)}
-              className="far fa-window-close"
             ></i>
           </div>
         </div>

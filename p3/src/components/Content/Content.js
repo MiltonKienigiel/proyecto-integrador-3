@@ -3,7 +3,7 @@ import "./Content.css";
 import Card from "../Card/Card";
 import SearchInput from "../SearchInput/SearchInput";
 import Slider from "../Slider/Slider";
-import {arrayMoveImmutable} from 'array-move';
+import { arrayMoveImmutable } from "array-move";
 
 class Content extends Component {
   constructor(props) {
@@ -49,7 +49,14 @@ class Content extends Component {
 
   contentShow() {
     if (!this.state.loaded) {
-      return <p> Cargando... </p>;
+      return (
+        <div class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      );
     } else {
       return this.state.filteredCards.map((cancion, idx) => {
         return (
@@ -65,7 +72,7 @@ class Content extends Component {
             delete={(id) => this.deleteCard(id)}
             cardClassName={this.state.cardClassName}
             moveLeft={(id) => this.moveLeft(id)}
-            moveRight = {(id)=>this.moveRight(id)}
+            moveRight={(id) => this.moveRight(id)}
           />
         );
       });
@@ -101,24 +108,30 @@ class Content extends Component {
     }
   } // Filter by title
 
-  moveLeft(id){
-    
-    let move = this.state.filteredCards.findIndex(result => id === result.id)
-    const arrayNuevo = arrayMoveImmutable(this.state.filteredCards, move, move - 1 )
-    console.log(move)
-    this.setState ({
-      filteredCards: arrayNuevo
-    }) 
+  moveLeft(id) {
+    let move = this.state.filteredCards.findIndex((result) => id === result.id);
+    const arrayNuevo = arrayMoveImmutable(
+      this.state.filteredCards,
+      move,
+      move - 1
+    );
+    console.log(move);
+    this.setState({
+      filteredCards: arrayNuevo,
+    });
   } // Move Left
 
-  moveRight(id){
-    let move = this.state.filteredCards.findIndex(result => id === result.id)
-    const arrayNuevo = arrayMoveImmutable(this.state.filteredCards, move, move + 1 )
-    console.log(move)
-    this.setState ({
-      filteredCards: arrayNuevo
-    })
-
+  moveRight(id) {
+    let move = this.state.filteredCards.findIndex((result) => id === result.id);
+    const arrayNuevo = arrayMoveImmutable(
+      this.state.filteredCards,
+      move,
+      move + 1
+    );
+    console.log(move);
+    this.setState({
+      filteredCards: arrayNuevo,
+    });
   }
 
   loadMore() {
@@ -154,9 +167,9 @@ class Content extends Component {
     this.setState({
       filteredCards: array.sort(function (a, b) {
         if (a.title > b.title) {
-          return type == "asc" ? 1 : -1;
+          return type === "asc" ? 1 : -1;
         } else {
-          return type == "asc" ? -1 : 1;
+          return type === "asc" ? -1 : 1;
         }
         // a must be equal to b
         return 0;
@@ -183,19 +196,33 @@ class Content extends Component {
   render() {
     return (
       <div className="containerBig">
-        <Slider />
+        {/* <Slider /> */}
         <section className="filtersContainer">
-          
           <div className="controlButtons">
-            <i className="fas fa-th control-btn" onClick={() => this.verticalOrder()}></i>
-            <i className="fas fa-align-justify control-btn" onClick={() => this.horizontalOrder()}></i>
-            <button className="control-btn btn_show" onClick={() => this.sortArray(this.state.filteredCards, "asc")}>
+            <i
+              className="fas fa-th control-btn"
+              onClick={() => this.verticalOrder()}
+            ></i>
+            <i
+              className="fas fa-align-justify control-btn"
+              onClick={() => this.horizontalOrder()}
+            ></i>
+            <button
+              className="control-btn btn_show"
+              onClick={() => this.sortArray(this.state.filteredCards, "asc")}
+            >
               A - Z
             </button>
-            <button className="control-btn btn_show" onClick={() => this.sortArray(this.state.filteredCards, "desc")}>
+            <button
+              className="control-btn btn_show"
+              onClick={() => this.sortArray(this.state.filteredCards, "desc")}
+            >
               Z - A
             </button>
-            <button className="control-btn btn_show" onClick={() => this.shuffle(this.state.filteredCards)}>
+            <button
+              className="control-btn btn_show"
+              onClick={() => this.shuffle(this.state.filteredCards)}
+            >
               La mixeta espacial
             </button>
           </div>
@@ -206,15 +233,11 @@ class Content extends Component {
             }}
           />
         </section>
-        <h3>{this.state.loadingText} </h3>
+        <h3 className="searchText">{this.state.loadingText} </h3>
         <div className="cardContainer">{this.contentShow()}</div>
-        <button
-          className="loadMore"
-          onClick={() => this.loadMore()}
-          type="button"
-        >
+        <div className="loadMore" onClick={() => this.loadMore()} type="button">
           Cargar más tarjetas
-        </button>
+        </div>
       </div>
     );
   } // Render

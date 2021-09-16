@@ -1,0 +1,14 @@
+.input {
+  border-radius: 5px;
+  padding: 5px;
+}
+.input:focus {
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+  color: white;
+}

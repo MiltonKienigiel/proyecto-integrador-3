@@ -1,19 +1,17 @@
 import React, { Component } from "react";
-import "./Header.css"
+import "./Header.css";
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  render() { 
-
-
+  render() {
     return (
       <header>
-        <img src="./images/jukebox.svg" />
+        <img src="./images/jukebox.svg" alt="jukebox" />
         <div className="text">
-            <h1>La Rockola Espacial</h1>
+          <h2>La Rocola Espacial</h2>
         </div>
       </header>
     );

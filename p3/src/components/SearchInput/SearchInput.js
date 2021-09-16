@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./SearchInput.css";
 class SearchInput extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +26,7 @@ class SearchInput extends Component {
       <>
         <form onSubmit={(e) => this.preventSubmit(e)}>
           <input
+            className="input"
             type="text"
             onChange={(e) => {
               this.getInput(e);

@@ -1,10 +1,16 @@
-header{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px;
+header {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-color: #14213dde;
+  line-height: 40px;
+  color: white;
 }
-header img{
-    max-height: 69px;
+header img {
+  max-height: 69px;
 }
-.text h1{    color: white !important
+.text h2 {
+  color: white !important;
+  font-family: revert;
+  padding-top: 15px;
 }

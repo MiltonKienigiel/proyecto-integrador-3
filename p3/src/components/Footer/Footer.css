@@ -1,0 +1,17 @@
+.footer {
+  background-color: #14213d;
+  color: white !important;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  position: sticky;
+  height: 50px;
+  top: calc(100vh - 120px);
+  line-height: 50px;
+}
+.footer p {
+  color: white;
+}
+.footer img {
+  max-width: 80px;
+}
