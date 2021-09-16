@@ -17,7 +17,8 @@
   padding: 20px;
   border-radius: 15px;
   margin: auto;
-  width: 40%;
+  width: 80%;
+  height: 50%;
   display: flex;
   justify-content: space-evenly;
   box-shadow: 0px 0px 6px 3px rgba(255, 255, 255, 0.75);
@@ -37,13 +38,15 @@
   display: none;
 }
 .show {
-  display: block;
-  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.pShow {
+.show p{
   text-align: left;
+  margin: 0 0 20px 0;
 }
-
 .closeSong {
   display: flex;
   justify-content: right;

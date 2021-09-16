@@ -6,7 +6,7 @@
   padding: 20px;
   position: sticky;
   height: 50px;
-  top: calc(100vh - 120px);
+  /* top: calc(100vh - 120px); */
   line-height: 50px;
 }
 .footer p {

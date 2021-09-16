@@ -41,7 +41,7 @@ class Card extends Component {
           <div className="containerSong">
             <img className="imageSong" src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
-            <p> {this.props.artist}</p>
+            <b><p> {this.props.artist}</p></b>
           </div>
 
           <div className={this.state.show}>
@@ -71,7 +71,7 @@ class Card extends Component {
           <div className="containerSong">
             <img className="imageSong" src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
-            <p> {this.props.artist}</p>
+            <b><p> {this.props.artist}</p></b>
           </div>
 
           <div className="show">

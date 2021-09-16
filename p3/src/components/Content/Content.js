@@ -235,9 +235,9 @@ class Content extends Component {
         </section>
         <h3 className="searchText">{this.state.loadingText} </h3>
         <div className="cardContainer">{this.contentShow()}</div>
-        <div className="loadMore" onClick={() => this.loadMore()} type="button">
+        <button className="btn_show loadMore" onClick={() => this.loadMore()} type="button">
           Cargar más tarjetas
-        </div>
+        </button>
       </div>
     );
   } // Render
