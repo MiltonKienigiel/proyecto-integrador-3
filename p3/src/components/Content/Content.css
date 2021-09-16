@@ -21,6 +21,15 @@
     justify-content: space-evenly;
     padding-top: 20px;
 }
+.controlButtons{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.control-btn{
+    cursor: pointer;
+    margin: 5px;
+}
 .loadMore{
     margin: auto;
     text-align: center;

@@ -31,14 +31,14 @@ class Card extends Component {
     if (this.props.cardClassName === "vertical") {
       return (
         <div className={this.props.cardClassName}>
-          <div>
+          <div className="closeSong">
             <i
               onClick={() => this.props.delete(this.props.id)}
               className="far fa-window-close"
             ></i>
           </div>
 
-          <div>
+          <div className="containerSong">
             <img className="imageSong" src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
             <p> {this.props.artist}</p>
@@ -65,7 +65,7 @@ class Card extends Component {
     } else {
       return (
         <div className={this.props.cardClassName}>
-          <div>
+          <div className="containerSong">
             <img src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
             <p> {this.props.artist}</p>
@@ -77,7 +77,7 @@ class Card extends Component {
             <p>Álbum: {this.props.albumName} </p>
           </div>
 
-          <div>
+          <div className="closeSong">
             <i
               onClick={() => this.props.delete(this.props.id)}
               className="far fa-window-close"

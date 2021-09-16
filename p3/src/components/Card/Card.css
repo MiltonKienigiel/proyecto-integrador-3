@@ -1,5 +1,5 @@
 .vertical{
-    background-color: black;
+    background-color: rgb(38, 0, 173);
     color: white;
     text-align: center;
     padding: 20px;
@@ -8,10 +8,8 @@
     margin: auto;
     width: 200px;
 }
-
-
 .horizontal{
-    background-color: black;
+    background-color: rgb(38, 0, 173);
     color: white;
     text-align: center;
     padding: 20px;
@@ -21,28 +19,42 @@
     display: flex;
     justify-content: space-evenly;
 }
-
 .hidden{
     display: none;
 }
 .show{
     display: block;
+    background-color: inherit;
+}
+.show p{
+    background-color: inherit;
+}
+.closeSong{
+    background-color: rgb(38, 0, 173);
+    display: flex;
+    justify-content: right; 
 }
 .fa-window-close:hover{
     color: red;
     cursor: pointer;
 }
+.containerSong{
+    background-color: inherit;
+}
+.containerSong p, h3{
+    background-color: inherit;
+}
 .imageSong{
     border-radius: 10px;
     margin-top: 5px;
+
 }
 .btn_show{
     background-color:cornflowerblue;
     color: white;
-    width: fit-content;
     margin:auto;
     padding: 2px 5px;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 7px;
 }
 .btn_show:hover{
@@ -52,13 +64,20 @@
 }
 .containerBottom{
     display: flex;
+    background-color: inherit;
+}
+.fa-chevron-right{
+    cursor: pointer;
+    background-color: inherit;
+}
+.fa-chevron-left{
+    cursor: pointer;
+    background-color: inherit;
 }
 .fa-chevron-right:hover{
-    cursor: pointer;
     color: cornflowerblue;
 }
 .fa-chevron-left:hover{
-    cursor: pointer;
     color: cornflowerblue;
 }
 h3{

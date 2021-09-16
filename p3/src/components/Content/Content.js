@@ -172,25 +172,20 @@ class Content extends Component {
       <div className="containerBig">
         <Slider />
         <section className="filtersContainer">
-          <i className="fas fa-th" onClick={() => this.verticalOrder()}></i>
-          <i
-            className="fas fa-align-justify"
-            onClick={() => this.horizontalOrder()}
-          ></i>
-          <button
-            onClick={() => this.sortArray(this.state.filteredCards, "asc")}
-          >
-            A - Z
-          </button>
-          <button
-            onClick={() => this.sortArray(this.state.filteredCards, "desc")}
-          >
-            Z - A
-          </button>
-          <button onClick={() => this.shuffle(this.state.filteredCards)}>
-           
-            La mixeta espacial
-          </button>
+          
+          <div className="controlButtons">
+            <i className="fas fa-th control-btn" onClick={() => this.verticalOrder()}></i>
+            <i className="fas fa-align-justify control-btn" onClick={() => this.horizontalOrder()}></i>
+            <button className="control-btn btn_show" onClick={() => this.sortArray(this.state.filteredCards, "asc")}>
+              A - Z
+            </button>
+            <button className="control-btn btn_show" onClick={() => this.sortArray(this.state.filteredCards, "desc")}>
+              Z - A
+            </button>
+            <button className="control-btn btn_show" onClick={() => this.shuffle(this.state.filteredCards)}>
+              La mixeta espacial
+            </button>
+          </div>
 
           <SearchInput
             filterByTitle={(filterTitle) => {
