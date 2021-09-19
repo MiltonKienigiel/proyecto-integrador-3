@@ -41,7 +41,9 @@ class Card extends Component {
           <div className="containerSong">
             <img className="imageSong" src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
-            <b><p> {this.props.artist}</p></b>
+            <b>
+              <p> {this.props.artist}</p>
+            </b>
           </div>
 
           <div className={this.state.show}>
@@ -71,13 +73,23 @@ class Card extends Component {
           <div className="containerSong">
             <img className="imageSong" src={this.props.cover} alt="" />
             <h3>{this.props.title}</h3>
-            <b><p> {this.props.artist}</p></b>
+            <b>
+              <p> {this.props.artist}</p>
+            </b>
           </div>
 
           <div className="show">
+            <i
+              onClick={() => this.props.moveLeft(this.props.id)}
+              className="fas fa-chevron-up"
+            ></i>
             <p className="pShow">Ranking: {this.props.ranking}</p>
             <p className="pShow">Duración: {this.props.duration} seg. </p>
             <p className="pShow">Álbum: {this.props.albumName} </p>
+            <i
+              onClick={() => this.props.moveRight(this.props.id)}
+              className="fas fa-chevron-down"
+            ></i>
           </div>
 
           <div className="closeSong">

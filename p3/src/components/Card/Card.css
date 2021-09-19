@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: center;
 }
-.show p{
+.show p {
   text-align: left;
   margin: 0 0 20px 0;
 }
@@ -82,10 +82,22 @@
 .fa-chevron-left {
   cursor: pointer;
 }
+.fa-chevron-up {
+  cursor: pointer;
+}
+.fa-chevron-down {
+  cursor: pointer;
+}
 .fa-chevron-right:hover {
   color: cornflowerblue;
 }
 .fa-chevron-left:hover {
+  color: cornflowerblue;
+}
+.fa-chevron-up:hover {
+  color: cornflowerblue;
+}
+.fa-chevron-down:hover {
   color: cornflowerblue;
 }
 h3 {
