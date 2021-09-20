@@ -149,7 +149,7 @@ class Content extends Component {
           .then((info) => {
             console.log(info.data);
             this.setState({
-              cards: info.data,
+              cards: this.state.cards.concat(info.data),
               filteredCards: this.state.filteredCards.concat(info.data),
               loaded: true,
             });
