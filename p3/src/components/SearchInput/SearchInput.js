@@ -33,6 +33,7 @@ class SearchInput extends Component {
             }}
             name="search"
             id=""
+            value={this.state.input}
             placeholder="Buscar canción..."
           />
         </form>

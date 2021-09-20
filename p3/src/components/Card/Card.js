@@ -33,7 +33,7 @@ class Card extends Component {
         <div className={this.props.cardClassName}>
           <div className="closeSong">
             <i
-              class="fas fa-times"
+              className="fas fa-times"
               onClick={() => this.props.delete(this.props.id)}
             ></i>
           </div>
@@ -94,7 +94,7 @@ class Card extends Component {
 
           <div className="closeSong">
             <i
-              class="fas fa-times"
+              className="fas fa-times"
               onClick={() => this.props.delete(this.props.id)}
             ></i>
           </div>
