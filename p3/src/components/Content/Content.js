@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Content.css";
 import Card from "../Card/Card";
 import SearchInput from "../SearchInput/SearchInput";
-import Slider from "../Slider/Slider";
 import { arrayMoveImmutable } from "array-move";
 
 class Content extends Component {
@@ -50,7 +49,7 @@ class Content extends Component {
   contentShow() {
     if (!this.state.loaded) {
       return (
-        <div class="lds-ellipsis">
+        <div className="lds-ellipsis">
           <div></div>
           <div></div>
           <div></div>
@@ -171,8 +170,6 @@ class Content extends Component {
         } else {
           return type === "asc" ? -1 : 1;
         }
-        // a must be equal to b
-        return 0;
       }),
     });
   } //sortArray
@@ -235,7 +232,11 @@ class Content extends Component {
         </section>
         <h3 className="searchText">{this.state.loadingText} </h3>
         <div className="cardContainer">{this.contentShow()}</div>
-        <button className="btn_show loadMore" onClick={() => this.loadMore()} type="button">
+        <button
+          className="btn_show loadMore"
+          onClick={() => this.loadMore()}
+          type="button"
+        >
           Cargar más tarjetas
         </button>
       </div>
